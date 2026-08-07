@@ -13,20 +13,21 @@
     <!-- Ícones do Google -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <!-- CSS Externo -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Nosso CSS Utilitário e de Componentes -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- ================= CABEÇALHO ================= -->
-    <header class="header">
-        <nav class="navbar" aria-label="Navegação Principal">
-            <a href="#" class="logo" aria-label="Página Inicial do Discord">
-                <!-- Imagem da logo em PNG (Substituindo o texto) -->
+    <!-- ================= CABEÇALHO (Acessível) ================= -->
+    <header class="header" role="banner">
+        <!-- Uso de Utilitários: d-flex, justify-between, align-center -->
+        <nav class="container d-flex justify-between align-center" aria-label="Navegação Principal">
+            <a href="#" class="logo d-flex align-center gap-8" aria-label="Página Inicial do Discord">
                 <img src="assets/img/logo.png" alt="Logo do Discord" class="logo-img">
             </a>
 
-            <ul class="nav-links">
+            <!-- lg-d-flex: Fica oculto (d-none) no Mobile/Tablet, e vira flex no Desktop -->
+            <ul class="nav-links d-none lg-d-flex gap-32">
                 <li><a href="#">Baixar</a></li>
                 <li><a href="#">Nitro</a></li>
                 <li><a href="#">Descobrir</a></li>
@@ -36,9 +37,10 @@
                 <li><a href="#">Carreiras</a></li>
             </ul>
 
-            <div class="nav-actions">
-                <a href="#" class="btn-login">Entrar</a>
-                <button class="hamburger" aria-label="Abrir menu">
+            <div class="nav-actions d-flex align-center gap-16">
+                <a href="#" class="btn-login" aria-label="Fazer login na sua conta">Entrar</a>
+                <!-- lg-d-none: O Menu Hambúrguer some no Desktop -->
+                <button class="hamburger lg-d-none text-white" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <span class="material-symbols-outlined" aria-hidden="true">menu</span>
                 </button>
             </div>
@@ -46,81 +48,83 @@
     </header>
 
     <!-- ================= CONTEÚDO PRINCIPAL ================= -->
-    <main>
+    <main role="main">
         
-        <!-- SEÇÃO HERO (Com Background PNG) -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>IMAGINE UM LUGAR...</h1>
+        <!-- SEÇÃO HERO -->
+        <section class="hero text-center text-white" aria-labelledby="hero-title">
+            <div class="max-w-800 mx-auto">
+                <h1 id="hero-title">IMAGINE UM LUGAR...</h1>
                 <p>...onde você possa pertencer a um clube escolar, um grupo de gamers, ou uma comunidade artística mundial. Onde você e um punhado de amigos possam passar um tempo juntos. Um lugar que torna fácil conversar todo dia e socializar com mais frequência.</p>
                 
-                <div class="hero-buttons">
-                    <!-- Botão 1: Download Oficial -->
-                    <a href="https://discord.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-light" aria-label="Baixar o Discord oficial">
+                <!-- RESPONSIVIDADE EM AÇÃO: Flex coluna (mobile) -> Flex linha (md-flex-row no tablet) -->
+                <div class="d-flex flex-col md-flex-row align-center justify-center gap-16 mt-24">
+                    <a href="https://discord.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-light w-100" aria-label="Baixar o Discord oficial para o seu dispositivo">
                         <span class="material-symbols-outlined" aria-hidden="true">download</span>
                         Baixar o Discord
                     </a>
                     
-                    <!-- Botão 2: Link Pessoal da Miriã -->
-                    <a href="https://discord.com/channels/miriaamaralcustodiosantos" target="_blank" rel="noopener noreferrer" class="btn btn-dark" aria-label="Conecte-se comigo no Discord">
+                    <a href="https://discord.com/channels/miriaamaralcustodiosantos" target="_blank" rel="noopener noreferrer" class="btn btn-dark w-100" aria-label="Conecte-se com Miriã Amaral no Discord">
                         Conecte-se comigo no Discord
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 1: Crie um espaço (Branca | Desktop: Img Esq, Txt Dir) -->
-        <section class="z-section bg-white">
-            <div class="container layout-row">
-                <div class="section-img">
-                    <img src="assets/img/section1.png" alt="Ilustração de um grupo de amigos conversando em um canal de voz" class="responsive-img">
+        <!-- SEÇÃO 1: Crie um espaço -->
+        <section class="z-section bg-white" aria-labelledby="section1-title">
+            <!-- lg-flex-row: No celular é coluna (empilhado), no desktop fica lado a lado -->
+            <div class="container d-flex flex-col lg-flex-row align-center gap-40">
+                <div class="flex-1">
+                    <img src="assets/img/section1.png" alt="Ilustração de um grupo de amigos conversando alegremente em um canal de voz" class="responsive-img">
                 </div>
-                <div class="section-text">
-                    <h2>Crie um espaço controlado por convite onde você se sinta em casa</h2>
+                <div class="section-text flex-1">
+                    <h2 id="section1-title">Crie um espaço controlado por convite onde você se sinta em casa</h2>
                     <p>Os servidores Discord são organizados em canais baseados em tópicos onde vocês podem colaborar, compartilhar ou simplesmente falar do dia a dia sem entupir um chat em grupo.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 2: Onde é fácil (Cinza | Desktop: Txt Esq, Img Dir - REVERSE) -->
-        <section class="z-section bg-gray">
-            <div class="container layout-row reverse">
-                <div class="section-img">
-                    <img src="assets/img/section2.png" alt="Ilustração mostrando canais de voz sendo fáceis de usar" class="responsive-img">
+        <!-- SEÇÃO 2: Onde é fácil (REVERSE no Desktop) -->
+        <section class="z-section bg-gray" aria-labelledby="section2-title">
+            <!-- lg-flex-row-reverse: No desktop, inverte a ordem (Texto na esquerda, Imagem na direita)! -->
+            <div class="container d-flex flex-col lg-flex-row-reverse align-center gap-40">
+                <div class="flex-1">
+                    <img src="assets/img/section2.png" alt="Ilustração mostrando salas de voz com avatares de usuários conectados" class="responsive-img">
                 </div>
-                <div class="section-text">
-                    <h2>Onde é fácil passar um tempo junto</h2>
+                <div class="section-text flex-1">
+                    <h2 id="section2-title">Onde é fácil passar um tempo junto</h2>
                     <p>Entre num canal de voz quando estiver à toa. Amigos no seu servidor podem ver você ali e entrar instantaneamente para conversar sem nem ter que ligar para você.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: Para poucos ou muitos (Branca | Desktop: Img Esq, Txt Dir) -->
-        <section class="z-section bg-white">
-            <div class="container layout-row">
-                <div class="section-img">
-                    <img src="assets/img/section3.png" alt="Ilustração de ferramentas de moderação de comunidade" class="responsive-img">
+        <!-- SEÇÃO 3: Para poucos ou muitos -->
+        <section class="z-section bg-white" aria-labelledby="section3-title">
+            <div class="container d-flex flex-col lg-flex-row align-center gap-40">
+                <div class="flex-1">
+                    <img src="assets/img/section3.png" alt="Ilustração de ferramentas de moderação exibindo cargos e permissões de comunidade" class="responsive-img">
                 </div>
-                <div class="section-text">
-                    <h2>De poucos a um fandom</h2>
+                <div class="section-text flex-1">
+                    <h2 id="section3-title">De poucos a um fandom</h2>
                     <p>Crie qualquer comunidade com ferramentas de moderação e acesso personalizado a membros. Dê poderes especiais aos membros, monte canais privados e muito mais.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 4: Tecnologia confiável (Cinza | Desktop: Txt Topo, Img Embaixo) -->
-        <section class="z-section bg-gray">
-            <div class="container layout-col">
-                <div class="section-text center-text">
-                    <h2>Tecnologia confiável para manter a proximidade</h2>
+        <!-- SEÇÃO 4: Tecnologia confiável -->
+        <section class="z-section bg-gray" aria-labelledby="section4-title">
+            <!-- flex-col: Sempre em coluna, independente da tela -->
+            <div class="container d-flex flex-col align-center gap-32">
+                <div class="section-text text-center">
+                    <h2 id="section4-title">Tecnologia confiável para manter a proximidade</h2>
                     <p>Vídeo e áudio de baixa latência fazem com que você sinta como se estivessem na mesma sala. Dê um oi em vídeo, veja amigos transmitirem seus jogos ou junte a galera para uma sessão de desenho via compartilhamento de tela.</p>
                 </div>
-                <div class="section-img hero-img-large">
-                    <img src="assets/img/section4.png" alt="Múltiplas pessoas em uma chamada de vídeo do Discord" class="responsive-img">
+                <div class="w-100">
+                    <img src="assets/img/section4.png" alt="Pessoas sorrindo e interagindo através de uma chamada de vídeo múltipla no Discord" class="responsive-img mx-auto">
                 </div>
-                <div class="cta-bottom">
-                    <h3>Pronto para começar sua jornada?</h3>
-                    <a href="https://discord.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-brand" aria-label="Baixar o Discord para Windows">
+                <div class="text-center mt-24">
+                    <h3 style="font-size: 2rem; margin-bottom: 24px;">Pronto para começar sua jornada?</h3>
+                    <a href="https://discord.com/download" target="_blank" rel="noopener noreferrer" class="btn btn-brand mx-auto" aria-label="Baixar o Discord para Windows agora">
                         <span class="material-symbols-outlined" aria-hidden="true">download</span>
                         Baixar para Windows
                     </a>
@@ -130,61 +134,60 @@
 
     </main>
 
-    <!-- ================= RODAPÉ ================= -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2 style="font-size: 2rem;">IMAGINE UM LUGAR</h2>
-                <div class="language-selector">
-                    <img src="https://flagcdn.com/w20/br.png" alt="Bandeira do Brasil" style="width: 20px; border-radius: 2px;">
-                    Português do Brasil
+    <!-- ================= RODAPÉ (Acessível) ================= -->
+    <footer class="footer bg-dark text-white" role="contentinfo">
+        <div class="container">
+            <!-- md-flex-row: No mobile empilha a marca e os links, no Tablet/Desktop coloca lado a lado -->
+            <div class="footer-content d-flex flex-col md-flex-row justify-between gap-40 pb-40">
+                <div class="flex-1">
+                    <h2 class="text-brand font-bold" style="font-size: 2rem;">IMAGINE UM LUGAR</h2>
+                    <div class="d-flex align-center gap-8 mt-16 text-sm" aria-label="Idioma selecionado">
+                        <img src="https://flagcdn.com/w20/br.png" alt="Bandeira do Brasil indicando o idioma" style="width: 20px; border-radius: 2px;">
+                        Português do Brasil
+                    </div>
+                    <div class="d-flex gap-16 mt-24" aria-label="Redes Sociais">
+                        <a href="#" class="text-white" aria-label="Compartilhar página"><span class="material-symbols-outlined" aria-hidden="true">share</span></a>
+                    </div>
                 </div>
-                <div class="social-icons" style="margin-top: 24px; display: flex; gap: 16px;">
-                    <a href="#" style="color: white;"><span class="material-symbols-outlined">share</span></a>
-                </div>
+
+                <!-- flex-wrap: Permite que as listas quebrem de linha de forma fluida no mobile -->
+                <nav class="footer-links flex-2 d-flex flex-wrap justify-between gap-40" aria-label="Navegação do Rodapé">
+                    <ul>
+                        <li class="footer-title">Produto</li>
+                        <li><a href="#">Baixar</a></li>
+                        <li><a href="#">Nitro</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                    <ul>
+                        <li class="footer-title">Empresa</li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Empregos</a></li>
+                        <li><a href="#">Marca</a></li>
+                        <li><a href="#">Sala de Imprensa</a></li>
+                    </ul>
+                    <ul>
+                        <li class="footer-title">Recursos</li>
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Segurança</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Desenvolvedores</a></li>
+                    </ul>
+                    <ul>
+                        <li class="footer-title">Políticas</li>
+                        <li><a href="#">Termos</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Diretrizes</a></li>
+                        <li><a href="#">Licenças</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="footer-links">
-                <ul>
-                    <li class="footer-title">Produto</li>
-                    <li><a href="#">Baixar</a></li>
-                    <li><a href="#">Nitro</a></li>
-                    <li><a href="#">Status</a></li>
-                </ul>
-                <ul>
-                    <li class="footer-title">Empresa</li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Empregos</a></li>
-                    <li><a href="#">Marca</a></li>
-                    <li><a href="#">Sala de Imprensa</a></li>
-                </ul>
-                <ul>
-                    <li class="footer-title">Recursos</li>
-                    <li><a href="#">Faculdade</a></li>
-                    <li><a href="#">Suporte</a></li>
-                    <li><a href="#">Segurança</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Comentários</a></li>
-                    <li><a href="#">Desenvolvedores</a></li>
-                    <li><a href="#">StreamKit</a></li>
-                </ul>
-                <ul>
-                    <li class="footer-title">Políticas</li>
-                    <li><a href="#">Termos</a></li>
-                    <li><a href="#">Privacidade</a></li>
-                    <li><a href="#">Configurações de cookies</a></li>
-                    <li><a href="#">Diretrizes</a></li>
-                    <li><a href="#">Agradecimentos</a></li>
-                    <li><a href="#">Licenças</a></li>
-                    <li><a href="#">Informações da Empresa</a></li>
-                </ul>
+
+            <div class="footer-bottom d-flex justify-between align-center mt-24">
+                <a href="#" class="logo" aria-label="Página Inicial - Voltar ao topo">
+                    <img src="assets/img/logo.png" alt="Logo do Discord" class="logo-img">
+                </a>
+                <a href="#" class="btn-brand-small" aria-label="Registrar uma nova conta">Registrar-se</a>
             </div>
-        </div>
-        <div class="container footer-bottom">
-            <a href="#" class="logo" aria-label="Voltar ao topo">
-                <!-- Imagem da logo em PNG no rodapé -->
-                <img src="assets/img/logo.png" alt="Logo do Discord" class="logo-img">
-            </a>
-            <a href="#" class="btn-brand-small">Registrar-se</a>
         </div>
     </footer>
 

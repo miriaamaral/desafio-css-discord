@@ -41,21 +41,154 @@ ul {
 }
 
 /* =========================================
-   2. CABEÇALHO (HEADER) E LOGO PNG
+   2. CLASSES UTILITÁRIAS (UTILITIES)
+   O segredo de um CSS limpo e escalável!
 ========================================= */
-.header {
-    background-color: var(--brand-color);
-    padding: 24px;
-    position: relative;
-    z-index: 10;
+
+/* Layout Flexbox */
+.d-flex {
+    display: flex;
 }
 
-.navbar {
+.d-none {
+    display: none;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+/* Alinhamentos Flex */
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+/* Espaçamentos (Gaps e Margins) */
+.gap-8 {
+    gap: 8px;
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+.gap-24 {
+    gap: 24px;
+}
+
+.gap-32 {
+    gap: 32px;
+}
+
+.gap-40 {
+    gap: 40px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.pb-40 {
+    padding-bottom: 40px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tipografia */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-white {
+    color: var(--text-white);
+}
+
+.text-brand {
+    color: var(--brand-color);
+}
+
+.text-sm {
+    font-size: 0.9rem;
+}
+
+.font-bold {
+    font-weight: 800;
+}
+
+/* Cores de Fundo */
+.bg-white {
+    background-color: var(--bg-white);
+}
+
+.bg-gray {
+    background-color: var(--bg-gray);
+}
+
+.bg-dark {
+    background-color: var(--bg-dark);
+}
+
+/* Dimensões */
+.w-100 {
+    width: 100%;
+}
+
+.max-w-800 {
+    max-width: 800px;
+}
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0 24px;
+    width: 100%;
+}
+
+/* =========================================
+   3. COMPONENTES ESPECÍFICOS
+========================================= */
+
+/* Header & Navbar */
+.header {
+    background-color: var(--brand-color);
+    padding: 24px 0;
+    position: relative;
+    z-index: 10;
 }
 
 .logo-img {
@@ -64,15 +197,10 @@ ul {
     display: block;
 }
 
-/* Oculta links no Mobile */
-.nav-links {
-    display: none;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-login {
@@ -90,66 +218,41 @@ ul {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.hamburger {
-    background: none;
-    border: none;
+.nav-links a {
     color: var(--text-white);
-    cursor: pointer;
-    display: flex;
+    font-weight: 600;
+    font-size: 16px;
 }
 
-/* =========================================
-   3. SEÇÃO HERO - COM BACKGROUND CORRIGIDO
-========================================= */
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
 .hero {
-    /* AQUI ESTÁ A CORREÇÃO:
-       Mudei para background.png (que foi o nome que você salvou).
-       O '../' diz ao CSS para sair da pasta 'css' e entrar na pasta 'img'
-    */
     background: var(--brand-color) url('../img/background.png') center bottom / cover no-repeat;
-    color: var(--text-white);
     padding: 60px 24px 120px 24px;
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .hero h1 {
     font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 800;
-    text-transform: uppercase;
     margin-bottom: 24px;
 }
 
 .hero p {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     line-height: 1.6;
-    margin-bottom: 32px;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
 }
 
 /* Botões Globais */
 .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 350px;
     padding: 16px 32px;
     border-radius: 40px;
     font-size: 1.1rem;
     font-weight: 600;
     transition: all 0.2s ease;
+    max-width: 350px;
 }
 
 .btn-light {
@@ -182,36 +285,9 @@ ul {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* =========================================
-   4. SEÇÕES Z-PATTERN
-========================================= */
+/* Z-Sections Específicos */
 .z-section {
-    padding: 60px 24px;
-}
-
-.bg-white {
-    background-color: var(--bg-white);
-}
-
-.bg-gray {
-    background-color: var(--bg-gray);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.layout-row,
-.layout-col {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-}
-
-.section-text {
-    text-align: left;
+    padding: 80px 0;
 }
 
 .section-text h2 {
@@ -226,63 +302,16 @@ ul {
     line-height: 1.6;
 }
 
-.center-text {
-    text-align: center;
-}
-
-.cta-bottom {
-    text-align: center;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cta-bottom h3 {
-    font-size: 2rem;
-    margin-bottom: 24px;
-}
-
-/* =========================================
-   5. RODAPÉ (FOOTER)
-========================================= */
+/* Footer Componentes */
 .footer {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    padding: 80px 24px 40px;
+    padding: 80px 0 40px;
 }
 
 .footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    border-bottom: 1px solid #5865F2;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-brand h2 {
-    color: var(--brand-color);
-    font-weight: 800;
-}
-
-.language-selector {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    margin-top: 16px;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: space-between;
+    border-bottom: 1px solid var(--brand-color);
 }
 
 .footer-links ul {
-    flex: 1;
     min-width: 120px;
 }
 
@@ -302,12 +331,6 @@ ul {
     text-decoration: underline;
 }
 
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .btn-brand-small {
     background-color: var(--brand-color);
     color: var(--text-white);
@@ -322,68 +345,40 @@ ul {
 }
 
 /* =========================================
-   6. MEDIA QUERIES (TABLET & DESKTOP)
+   4. RESPONSIVIDADE (UTILITIES MEDIA QUERIES)
 ========================================= */
+
+/* Tablet (768px+) */
 @media (min-width: 768px) {
-    .hero-buttons {
+    .md-flex-row {
         flex-direction: row;
-        justify-content: center;
     }
 
     .btn {
         width: auto;
     }
-
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .footer-links {
-        flex: 2;
-    }
 }
 
+/* Desktop (1024px+) */
 @media (min-width: 1024px) {
-    .hamburger {
+    .lg-d-flex {
+        display: flex;
+    }
+
+    .lg-d-none {
         display: none;
     }
 
-    .nav-links {
-        display: flex;
-        gap: 32px;
-    }
-
-    .nav-links a {
-        color: var(--text-white);
-        font-weight: 600;
-        font-size: 16px;
-    }
-
-    .nav-links a:hover {
-        text-decoration: underline;
-    }
-
-    .hero {
-        padding: 120px 24px;
-    }
-
-    .z-section {
-        padding: 120px 24px;
-    }
-
-    .layout-row {
+    .lg-flex-row {
         flex-direction: row;
-        align-items: center;
     }
 
-    .layout-row.reverse {
+    .lg-flex-row-reverse {
         flex-direction: row-reverse;
     }
 
-    .section-img,
-    .section-text {
-        flex: 1;
+    .z-section {
+        padding: 120px 0;
     }
 
     .section-text {
